@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ㅤㅤㅤㅤㅤ&trade;ㅤㅤ</title>
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Invisible_Pink_Unicorn_High_Resolution.png/1200px-Invisible_Pink_Unicorn_High_Resolution.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: "icons";
+      src: url("https://jackmophin.github.io/local/fonts/icons.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .icon {
+      font-family: "icons" !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: inline-block;
+      text-align: center;
+      width: 2rem;
+      height: 2rem;
+      font-size: 34px;
+    }
+
+    .icon-char::before {
+      font-family: "icons" !important;
+      content: attr(data-char);
+    }
+
+    .icon-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+
+    .icon-item span {
+      margin-top: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon-list" id="icon-list"></div>
+
+  <script>
+    // Функция для добавления иконок
+    function addIcons() {
+      const iconList = document.getElementById('icon-list');
+      
+      // Перебираем числа от 101 до 200
+      for (let i = 101; i <= 199; i++) {
+        // Создаём новый элемент div
+        const iconItem = document.createElement('div');
+        iconItem.classList.add('icon-item');
+        
+        // Создаём элемент i для иконки
+        const icon = document.createElement('i');
+        icon.classList.add('icon');
+        const iconCode = `&#xf${i};`;  // Код символа
+
+        // Присваиваем код символа иконке
+        icon.innerHTML = iconCode;
+
+        // Создаём span для кода
+        const iconCodeSpan = document.createElement('span');
+        iconCodeSpan.textContent = iconCode;  // Отображаем код иконки
+
+        // Добавляем иконку и код в item
+        iconItem.appendChild(icon);
+        iconItem.appendChild(iconCodeSpan);
+
+        // Добавляем item в список
+        iconList.appendChild(iconItem);
+      }
+    }
+
+    // Вызов функции
+    addIcons();
+  </script>
+</body>
+</html>
